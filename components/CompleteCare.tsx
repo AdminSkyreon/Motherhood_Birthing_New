@@ -3,6 +3,7 @@
 import { useEffect, useRef, useState, type CSSProperties } from "react";
 
 import { stagesFromHospital } from "@/lib/maternity-stages";
+import { publicAsset } from "@/lib/public-asset";
 
 const COMPLETE_CARE = {
   headingBadge: "Complete Care · Every Stage",
@@ -131,7 +132,7 @@ export function CompleteCare({ onBook }: { onBook: () => void }) {
       style={
         showFootAccent
           ? ({
-              ["--complete-care-foot-bg" as string]: 'url("/complete-care-foot-accent.png")',
+              ["--complete-care-foot-bg" as string]: `url("${publicAsset("/complete-care-foot-accent.png")}")`,
             } as CSSProperties)
           : undefined
       }

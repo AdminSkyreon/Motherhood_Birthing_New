@@ -19,6 +19,7 @@ import {
   STAY_NOTES,
   type Doctor,
 } from "@/data/page-content";
+import { publicAsset } from "@/lib/public-asset";
 
 const INDIAN_MOBILE = /^[6-9]\d{9}$/;
 
@@ -173,7 +174,7 @@ function DoctorCard({
   onBook: () => void;
 }) {
   const [photoFailed, setPhotoFailed] = useState(false);
-  const photo = `/doctors/pan-india/${doc.photoSrc}`;
+  const photo = publicAsset(`/doctors/pan-india/${doc.photoSrc}`);
 
   return (
     <article
@@ -283,10 +284,10 @@ export default function BirthingPage() {
         <nav aria-label="Primary">
           <a href="#home" className="logo-wrap">
             <picture>
-              <source srcSet="/motherhood_logo.webp" type="image/webp" />
+              <source srcSet={publicAsset("/motherhood_logo.webp")} type="image/webp" />
               <img
                 className="logo-img"
-                src="/motherhood_logo.png"
+                src={publicAsset("/motherhood_logo.png")}
                 alt="Motherhood Women & Children's Hospital"
                 width={280}
                 height={72}
@@ -319,10 +320,14 @@ export default function BirthingPage() {
         </div>
         <div className="hero-bg">
           <picture>
-            <source media="(max-width: 768px)" srcSet="/hero_main-mobile.webp" type="image/webp" />
-            <source srcSet="/hero_main-desktop.webp" type="image/webp" />
+            <source
+              media="(max-width: 768px)"
+              srcSet={publicAsset("/hero_main-mobile.webp")}
+              type="image/webp"
+            />
+            <source srcSet={publicAsset("/hero_main-desktop.webp")} type="image/webp" />
             <img
-              src="/hero_main-mobile.webp"
+              src={publicAsset("/hero_main-mobile.webp")}
               alt="Expectant mother at a consultation"
               className="hero-img"
               width={1536}

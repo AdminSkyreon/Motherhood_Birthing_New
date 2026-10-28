@@ -3,6 +3,7 @@
 import { useLayoutEffect, useRef, useState } from "react";
 
 import { PATIENT_REVIEWS, REVIEWS_SECTION, type PatientReview } from "@/data/page-content";
+import { publicAsset } from "@/lib/public-asset";
 
 function normalizeReviewText(text: string) {
   return text.replace(/\/n/g, "\n").replace(/\\n/g, "\n").trim();
@@ -89,7 +90,14 @@ export function ReviewsSection() {
         <div className="review-badges-row">
           <div className="review-platform-badge">
             <div className="rpb-logo">
-              <img className="rpb-logo-img" src="/google-logo.svg" alt="" width={24} height={24} loading="lazy" />
+              <img
+                className="rpb-logo-img"
+                src={publicAsset("/google-logo.svg")}
+                alt=""
+                width={24}
+                height={24}
+                loading="lazy"
+              />
             </div>
             <div className="rpb-copy">
               <div className="rpb-score">⭐ {google.rating.toFixed(1)}</div>
@@ -100,7 +108,14 @@ export function ReviewsSection() {
           </div>
           <div className="review-platform-badge">
             <div className="rpb-logo">
-              <img className="rpb-logo-img" src="/practo-p-logo.svg" alt="" width={24} height={24} loading="lazy" />
+              <img
+                className="rpb-logo-img"
+                src={publicAsset("/practo-p-logo.svg")}
+                alt=""
+                width={24}
+                height={24}
+                loading="lazy"
+              />
             </div>
             <div className="rpb-copy">
               <div className="rpb-score">⭐ {practo.rating.toFixed(1)}</div>
