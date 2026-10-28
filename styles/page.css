@@ -141,9 +141,54 @@
   margin:0 0 10px;
   text-align:left;
 }
-.package-block-title--center{
+.package-collapse + .package-collapse{
+  margin-top:14px;
+}
+.package-collapse-trigger{
+  display:flex;
+  align-items:center;
+  gap:8px;
+  width:100%;
+  margin:0;
+  padding:0;
+  border:none;
+  background:transparent;
+  cursor:pointer;
+  text-align:left;
+}
+.package-collapse-title{
+  font-family:'Montserrat',sans-serif;
+  font-size:17px;
+  font-weight:700;
+  color:#231f20;
+}
+.package-collapse-chevron{
+  flex-shrink:0;
+  width:8px;
+  height:8px;
+  border-right:2px solid var(--h-accent-blue,#0057a4);
+  border-bottom:2px solid var(--h-accent-blue,#0057a4);
+  transform:rotate(45deg);
+  transition:transform 0.2s ease;
+  margin-right:2px;
+}
+.package-collapse-trigger[aria-expanded="false"] .package-collapse-chevron{
+  transform:rotate(-135deg);
+}
+.package-collapse--exclusions .package-collapse-chevron{
+  border-color:#c62828;
+}
+.package-collapse-panel{
+  margin-top:10px;
+}
+.package-collapse-panel[hidden]{
+  display:none;
+}
+.package-block h3.package-block-title--center{
   text-align:center;
   width:100%;
+  line-height:1.35;
+  hyphens:none;
 }
 .package-list{
   list-style:none;
@@ -185,48 +230,35 @@
   border-radius:50%;
   background:#db5070;
 }
+.package-list.package-list--inclusions li::before{
+  background:var(--h-accent-blue,#0057a4);
+}
+.package-list.package-list--exclusions li::before{
+  background:#c62828;
+}
 .package-exclusions{
   display:grid;
   gap:16px;
-  margin-top:16px;
-  padding-top:16px;
-  border-top:1px dashed #f0dce6;
+  margin-top:0;
+  padding-top:0;
+  border-top:none;
 }
 @media(min-width:900px){
   .package-exclusions{
     grid-template-columns:1fr 1fr;
   }
-  .package-exclusions .package-block:last-child{
+  .package-exclusions .package-block--full-width{
     grid-column:1 / -1;
   }
-}
-.package-read-more-wrap{
-  display:flex;
-  justify-content:center;
-  margin-top:14px;
-  padding-top:12px;
-  border-top:1px solid #f5eef2;
-}
-.read-more-btn{
-  padding:0;
-  border:none;
-  background:transparent;
-  cursor:pointer;
-  font-family:'Montserrat',sans-serif;
-  font-size:13px;
-  font-weight:700;
-  color:#db5070;
-  text-decoration:underline;
-  text-underline-offset:3px;
-}
-.read-more-btn:hover{
-  color:#b8364d;
 }
 .package-block{margin:0;}
 .stay-note{
   margin-top:14px;
-  padding-top:14px;
-  border-top:1px dashed #f0dce6;
+  padding-top:0;
+}
+.stay-note--exclusions{
+  grid-column:1 / -1;
+  margin-top:16px;
 }
 .stay-note p{
   font-family:'Montserrat',sans-serif;
@@ -428,20 +460,7 @@
   box-shadow:0 6px 20px rgba(219,80,112,.34),0 4px 14px rgba(0,87,164,.28);
 }
 .hospital-page[data-hospital="pan-india"] .section-title.section-title--solid{
-  position:relative;
-  padding-bottom:14px;
-  margin-bottom:20px !important;
-}
-.hospital-page[data-hospital="pan-india"] .section-title.section-title--solid::after{
-  content:'';
-  position:absolute;
-  left:50%;
-  bottom:0;
-  transform:translateX(-50%);
-  width:min(88px,24vw);
-  height:3px;
-  border-radius:999px;
-  background:linear-gradient(90deg,var(--h-accent-rose,#db5070) 0%,var(--h-accent-blue,#0057a4) 100%);
+  margin-bottom:16px !important;
 }
 .brand-care{
   color:var(--h-accent-blue,#0057a4);
@@ -481,18 +500,6 @@
   left:0;
   right:0;
   height:3px;
-  background:linear-gradient(90deg,var(--h-accent-rose,#db5070) 0%,var(--h-accent-blue,#0057a4) 100%);
-}
-.package-list li:nth-child(even)::before{
-  background:var(--h-accent-blue,#0057a4);
-}
-.package-block-title--center::after{
-  content:'';
-  display:block;
-  width:56px;
-  height:3px;
-  margin:8px auto 0;
-  border-radius:999px;
   background:linear-gradient(90deg,var(--h-accent-rose,#db5070) 0%,var(--h-accent-blue,#0057a4) 100%);
 }
 .read-more-btn{

@@ -252,7 +252,8 @@ export default function BirthingPage() {
   const [errors, setErrors] = useState({ name: "", phone: "" });
   const [submitting, setSubmitting] = useState(false);
   const [requestId, setRequestId] = useState("");
-  const [showExclusions, setShowExclusions] = useState(false);
+  const [inclusionsOpen, setInclusionsOpen] = useState(true);
+  const [exclusionsOpen, setExclusionsOpen] = useState(false);
   const [openFaq, setOpenFaq] = useState<number | null>(0);
   const [pausedDoctorId, setPausedDoctorId] = useState<string | null>(null);
 
@@ -543,42 +544,64 @@ export default function BirthingPage() {
           </h2>
 
           <div className="package-panel">
-            <h3>Inclusions</h3>
-            <ul className="package-list package-list--inclusions">
-              {INCLUSIONS.map((item) => (
-                <li key={item}>{item}</li>
-              ))}
-            </ul>
-            <div className="stay-note">
-              <h3>Stay</h3>
-              {STAY_NOTES.map((note) => (
-                <p key={note}>{note}</p>
-              ))}
-            </div>
-
-            <div className="package-exclusions" id="package-exclusions" hidden={!showExclusions}>
-              {EXCLUSIONS.map((group) => (
-                <div className="package-block" key={group.title}>
-                  <h3 className={group.centerTitle ? "package-block-title--center" : undefined}>{group.title}</h3>
-                  <ul className={`package-list${group.twoColumnList ? " package-list--two-col" : ""}`}>
-                    {group.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                </div>
-              ))}
-            </div>
-
-            <div className="package-read-more-wrap">
+            <div className="package-collapse">
               <button
                 type="button"
-                className="read-more-btn"
-                aria-expanded={showExclusions}
-                aria-controls="package-exclusions"
-                onClick={() => setShowExclusions((open) => !open)}
+                className="package-collapse-trigger"
+                aria-expanded={inclusionsOpen}
+                aria-controls="package-inclusions-panel"
+                onClick={() => setInclusionsOpen((open) => !open)}
               >
-                {showExclusions ? "Read less" : "Read more"}
+                <span className="package-collapse-chevron" aria-hidden="true" />
+                <span className="package-collapse-title">Inclusions</span>
               </button>
+              <div id="package-inclusions-panel" className="package-collapse-panel" hidden={!inclusionsOpen}>
+                <ul className="package-list package-list--inclusions">
+                  {INCLUSIONS.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            <div className="package-collapse package-collapse--exclusions">
+              <button
+                type="button"
+                className="package-collapse-trigger"
+                aria-expanded={exclusionsOpen}
+                aria-controls="package-exclusions-panel"
+                onClick={() => setExclusionsOpen((open) => !open)}
+              >
+                <span className="package-collapse-chevron" aria-hidden="true" />
+                <span className="package-collapse-title">Exclusions</span>
+              </button>
+              <div id="package-exclusions-panel" className="package-collapse-panel" hidden={!exclusionsOpen}>
+                <div className="package-exclusions">
+                  {EXCLUSIONS.map((group) => (
+                    <div
+                      className={`package-block${group.centerTitle ? " package-block--full-width" : ""}`}
+                      key={group.title}
+                    >
+                      <h3 className={group.centerTitle ? "package-block-title--center" : undefined}>
+                        {group.title}
+                      </h3>
+                      <ul
+                        className={`package-list package-list--exclusions${group.twoColumnList ? " package-list--two-col" : ""}`}
+                      >
+                        {group.items.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  ))}
+                  <div className="stay-note stay-note--exclusions">
+                    <h3>Stay</h3>
+                    {STAY_NOTES.map((note) => (
+                      <p key={note}>{note}</p>
+                    ))}
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -587,7 +610,7 @@ export default function BirthingPage() {
       <section className="facility-section" id="facilities" aria-labelledby="facilities-heading">
         <div className="section-inner">
           <h2 id="facilities-heading" className="section-title section-title--solid">
-            Our facilities
+            Our Facilities
           </h2>
           <div className="facility-grid">
             {FACILITIES.map((item) => (
