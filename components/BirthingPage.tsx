@@ -207,6 +207,10 @@ function DoctorCard({
       <div className="doctor-card-content">
         <div className="doctor-card-body">
           <h3 className="doctor-name">{doc.name}</h3>
+          <p className="doctor-registration">
+            <span className="doctor-registration-label">Reg. No.:</span>{" "}
+            <span className="doctor-registration-number">{doc.registrationNumber}</span>
+          </p>
           <div className="doctor-experience-slot">
             <p className="doctor-experience">{doc.experience}</p>
           </div>

@@ -31,6 +31,8 @@ export const CITIES = [
 export type Doctor = {
   doctorId: string;
   name: string;
+  /** Medical council registration number (from Motherhood India doctor profiles). */
+  registrationNumber: string;
   experience: string;
   qualifications: string[];
   specialty: string;
@@ -43,6 +45,7 @@ export const DOCTORS: Doctor[] = [
   {
     doctorId: "dr-nagaveni-r",
     name: "Dr. Nagaveni R",
+    registrationNumber: "75973",
     experience: "17+ years of experience",
     qualifications: ["MBBS", "DGO", "DNB"],
     specialty: "Consultant Obstetrician & Gynaecologist",
@@ -53,6 +56,7 @@ export const DOCTORS: Doctor[] = [
   {
     doctorId: "dr-aarthi-bharat",
     name: "Dr. aarthi Bharat",
+    registrationNumber: "51426",
     experience: "25+ years of experience",
     qualifications: ["MBBS", "DGO"],
     specialty: "Consultant - Obstetrics & Gynaecology",
@@ -63,6 +67,7 @@ export const DOCTORS: Doctor[] = [
   {
     doctorId: "dr-deepmaala",
     name: "Dr. Deepmala",
+    registrationNumber: "73299",
     experience: "16+ years of experience",
     qualifications: ["MBBS", "MS"],
     specialty: "Consultant - Obstetrics & Gynaecology",
@@ -73,6 +78,7 @@ export const DOCTORS: Doctor[] = [
   {
     doctorId: "dr-suhasini-inamdar",
     name: "Dr. Suhasini Inamdar",
+    registrationNumber: "27603",
     experience: "33+ years of experience",
     qualifications: ["MBBS", "MS (OBG)"],
     specialty: "Consultant Obstetrician & Gynaecologist",
@@ -83,6 +89,7 @@ export const DOCTORS: Doctor[] = [
   {
     doctorId: "dr-sireesha-reddy",
     name: "Dr. Sireesha Reddy",
+    registrationNumber: "92902",
     experience: "24+ years of experience",
     qualifications: ["MBBS", "MRCOG", "CCT(UK)", "MD(OBST & GYNAE)"],
     specialty: "Consultant Obstetrician & Gynaecologist",
@@ -93,6 +100,7 @@ export const DOCTORS: Doctor[] = [
   {
     doctorId: "dr-madhavi-reddy",
     name: "Dr. Madhavi Reddy",
+    registrationNumber: "84597",
     experience: "16+ years of experience",
     qualifications: ["MBBS", "MS"],
     specialty: "Consultant - Obstetrics & Gynaecology",
@@ -103,6 +111,7 @@ export const DOCTORS: Doctor[] = [
   {
     doctorId: "dr-padma-srivastava",
     name: "Dr. Padma Srivastava",
+    registrationNumber: "2011123455",
     experience: "30+ years of experience",
     qualifications: ["MBBS", "MD(OBG)"],
     specialty: "Consultant - Obstetrics & Gynaecology",
@@ -113,6 +122,7 @@ export const DOCTORS: Doctor[] = [
   {
     doctorId: "dr-madhuri-burande-laha",
     name: "Dr. Madhuri Burande Laha",
+    registrationNumber: "MMC-87156",
     experience: "29+ years of experience",
     qualifications: ["MBBS", "DGO", "DNB"],
     specialty: "Senior Consultant - Obstetrician & Gynaecologist",
@@ -123,6 +133,7 @@ export const DOCTORS: Doctor[] = [
   {
     doctorId: "dr-surabhi-siddhartha",
     name: "Dr. Surabhi Siddhartha",
+    registrationNumber: "2005042591",
     experience: "15+ years of experience",
     qualifications: ["MBBS", "DGO"],
     specialty: "Consultant - Obstetrics & Gynaecology",
@@ -133,6 +144,7 @@ export const DOCTORS: Doctor[] = [
   {
     doctorId: "dr-asha-baxi",
     name: "Dr. Asha Baxi",
+    registrationNumber: "MP-4345",
     experience: "30+ years of experience",
     qualifications: ["MBBS", "FICOG", "FRCOG", "MS"],
     specialty: "Consultant - Obstetrics, Gynaecology & Reproductive Medicine",
@@ -143,6 +155,7 @@ export const DOCTORS: Doctor[] = [
   {
     doctorId: "dr-preeti-maheshwari",
     name: "Dr. Preeti Maheshwari",
+    registrationNumber: "MP-8283",
     experience: "15+ years of experience",
     qualifications: ["MBBS", "MS (Gold Medallist)"],
     specialty: "Consultant - Obstetrician and Gynaecologist",
@@ -153,6 +166,7 @@ export const DOCTORS: Doctor[] = [
   {
     doctorId: "dr-sandip-biswas",
     name: "Dr. Sandip Biswas",
+    registrationNumber: "56421",
     experience: "17+ years of experience",
     qualifications: ["MBBS", "DGO", "MRCOG", "FRCOG (London)"],
     specialty: "Consultant - Obstetrician & Gynaecologist",
@@ -163,6 +177,7 @@ export const DOCTORS: Doctor[] = [
   {
     doctorId: "dr-poonam-rudingwa",
     name: "Dr. Poonam Rudingwa",
+    registrationNumber: "DMC-R/05083",
     experience: "15+ years of experience",
     qualifications: ["MBBS", "MS (OBG)"],
     specialty: "Consultant - Obstetrics & Gynaecology",
